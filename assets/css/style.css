@@ -1,0 +1,156 @@
+/*__________________#	 
+	Map CSS	 
+#___________________*/
+
+.navbar-light {
+    background-color: #CCAA66;/*#9dc1ef!important;*/
+}
+
+ .navbar-brand, .nav-link{
+color: black !important;
+}
+
+#map {
+	height: calc(100vh - 50px); 
+	background-color:#eeee;
+}
+
+.card {
+	border: 0px;
+	background: #fff;
+}
+
+.toolbox {
+	display: none;
+	width: 200px;
+	min-height: 200px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: #fff;
+	border-radius: 8px;
+	border: 2px solid #333;
+	z-index: 1000;
+}
+
+#lyrCollapse {
+	position: absolute;
+	text-align:  right;
+	right: 10px;
+	top: 10px;
+	/*background: rgba(0,0,0,0);*/
+	z-index: 1000;
+}
+
+/*#lyrCollapse:hover + .toolbox {
+	display: block;
+	z-index: 1000;
+}*/
+
+#lyrCollapse:hover + .toolbox{
+	display: block;
+	z-index: 1000;
+}
+
+.toolbox:hover{
+	display: block;
+}
+
+#coordinates {
+	position: absolute;
+	left:  0;
+	background: #fff;
+	z-index: 99999;
+	bottom: 0;
+	padding: 3px;
+	padding-left: 10px;
+}
+
+.custom-control-input {
+	 cursor: pointer!important;
+}
+
+
+/*photos*/
+
+.photos {
+	width: 50vh;
+}
+
+
+.custom-popup .leaflet-popup-content-wrapper {
+  background:#2c3e50;
+  color:#fff;
+  font-size:16px;
+  line-height:24px;
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+  color:rgba(255,255,255,0.5);
+  }
+.custom-popup .leaflet-popup-tip-container {
+  width:30px;
+  height:15px;
+  }
+.custom-popup .leaflet-popup-tip {
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid #2c3e50;
+  }
+
+/*
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 46px;
+	height: 19px;
+	float: right;
+	margin-bottom: 0px;
+}
+
+/ * class before a tag name means e.g. any input in the class switch* /
+.switch input{
+	display:  block;
+}
+
+.slider {
+	position:  absolute;
+	top: 0;
+	background-color: #ccc;
+	-webkit-transition: 4s;
+	transition: 4s;
+}
+
+/ * :before means it will* /
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 14px;
+	left: 4px;
+	bottom: 2px;
+	background: white;
+	-webkit-transition:.4s;
+	transition:.4s;
+}
+
+input:focus+.slider {
+	box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked+.slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+.slider .round {
+	border-radius: 50px;
+}
+
+.list-group-item {
+	padding: 10px 20px;
+}
+
+input:default:checked+ .slider:before {
+	background-color: #444;
+}
+*/
