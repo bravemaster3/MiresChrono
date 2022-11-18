@@ -56,7 +56,7 @@
         `Area: ${area.toFixed(2)} ha <br>`+
         `Center: Long ${center_long.toFixed(2)}, Lat ${center_lat.toFixed(2)}`
 
-        var landscape_image = `<img class='photos' src = '/assets/images/${feature.properties.TARGET_FID}/landscape.JPG'/>`
+        var landscape_image = `<img class='photos' src = 'assets/images/${feature.properties.TARGET_FID}/landscape.JPG'/>`
 
         var date_text = `Image taken on the ${feature.properties.Photo_date}`
 
