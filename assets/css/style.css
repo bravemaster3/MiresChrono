@@ -79,24 +79,35 @@ color: black !important;
 }
 
 
-.custom-popup .leaflet-popup-content-wrapper {
+.leaflet-popup-content-wrapper {
   background:#2c3e50;
   color:#fff;
   font-size:16px;
   line-height:24px;
   }
-.custom-popup .leaflet-popup-content-wrapper a {
-  color:rgba(255,255,255,0.5);
+.leaflet-popup-content-wrapper a {
+  color:rgba(200,255,0,0.5);
   }
-.custom-popup .leaflet-popup-tip-container {
+.leaflet-popup-tip-container {
   width:30px;
   height:15px;
   }
-.custom-popup .leaflet-popup-tip {
-  border-left:15px solid transparent;
-  border-right:15px solid transparent;
+.leaflet-popup-tip {
+  border-left:15px solid #2c3e50;
+  border-right:15px solid #2c3e50;
   border-top:15px solid #2c3e50;
   }
+
+ .popup_tag {
+ 	padding: 0;
+ 	margin: 0;
+ 	font-size: 15px;
+ 	line-height : 2px;
+ 	font-family: Lucida Handwriting, Garamond, Arial, Helvetica, sans-serif;
+ 	text-align: center;
+ 	align-self: center;
+
+ }
 
 /*
 .switch {

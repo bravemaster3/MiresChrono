@@ -51,17 +51,20 @@
         center_long = center.geometry.coordinates[0]
         center_lat = center.geometry.coordinates[1]
 
-        var label = `Mire ID: ${feature.properties.TARGET_FID}<br>` + 
-        `pH: ${feature.properties.pH}<br>`+
-        `Area: ${area.toFixed(2)} ha <br>`+
-        `Center: Long ${center_long.toFixed(2)}, Lat ${center_lat.toFixed(2)}`
+        var label = `<p class='popup_tag'>Mire ID: ${feature.properties.TARGET_FID}<p/>` + 
+        `<p class='popup_tag'>pH: ${feature.properties.pH}<p/>`+
+        `<p class='popup_tag'>Area: ${area.toFixed(2)} ha <p/>`+
+        `<p class='popup_tag'>Center: Long ${center_long.toFixed(2)}, Lat ${center_lat.toFixed(2)}<p/>`
 
         var landscape_image = `<img class='photos' src = 'assets/images/${feature.properties.TARGET_FID}/landscape.JPG'/>`
 
-        var date_text = `Image taken on the ${feature.properties.Photo_date}`
+        var large_view = `<a  class='popup_tag' href= 'https://slughg.github.io/MiresChrono/assets/images/${feature.properties.TARGET_FID}/landscape.JPG' target='_blank'>Large view in a separate window</a>`
+
+        var date_text = `<p class='popup_tag'>Image taken on the ${feature.properties.Photo_date}<p/>`
 
         //console.log(date_text)
-        layer.bindPopup(label+"<br/>"+landscape_image+"<br/>"+date_text,
+        /*layer.bindPopup(label+"<br/>"+landscape_image+"<br/>"+large_view+"<br/>"+date_text,*/
+        layer.bindPopup(label+landscape_image+"<br/>"+large_view+date_text,
        //layer.bindPopup(label+"<br/>"+"<img class='photos' src = 'assets/images/115/Landscape.JPG'/>",
         	{maxWidth: "auto"}
         	)
