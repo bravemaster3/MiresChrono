@@ -32,33 +32,51 @@
 
 	//Creating styles for the geojson files
 
-	var miresStyle = {
+	var miresWStyle = {
 	    weight:2,
 	    fillColor:"blue",
 	    color: "blue",
 	    fillOpacity:0.05
 	}
 
+	var miresStyle = {
+	    weight:2,
+	    fillColor:"transparent",
+	    color: "transparent"
+	}
+
+	var miresPStyle = {		
+		shape: "star-5",
+		radius: 10,
+		fillColor: "cyan",
+		fillOpacity: 0.8,
+		color: "white",
+		weight: 1
+	}
+
+	//Adding the layer of whole mires first, and then we can add on top the split ones with transparent style
+	var miresW = L.geoJSON(miresW, {style : miresWStyle}).addTo(map)
 
 	//Adding the geojson files
 	var mires = L.geoJSON(mires, {
 		style : miresStyle,
 		onEachFeature:function(feature, layer){
 
-        area = turf.area(feature)/10000
+/*        area = turf.area(feature)/10000
         center = turf.center(feature)
 
         center_long = center.geometry.coordinates[0]
-        center_lat = center.geometry.coordinates[1]
+        center_lat = center.geometry.coordinates[1]*/
 
-        var label = `<p class='popup_tag'>Mire ID: ${feature.properties.TARGET_FID}<p/>` + 
-        `<p class='popup_tag'>pH: ${feature.properties.pH}<p/>`+
-        `<p class='popup_tag'>Area: ${area.toFixed(2)} ha <p/>`+
-        `<p class='popup_tag'>Center: Long ${center_long.toFixed(2)}, Lat ${center_lat.toFixed(2)}<p/>`
+        var label = `<p class='popup_tag'>Mire ID: ${feature.properties.Id_1}<p/>` + 
+        `<p class='popup_tag'>Mirea Area: ${(feature.properties.Mire_area / 10000).toFixed(2)} ha<p/>`+
+        `<p class='popup_tag'>Mire Elevation: ${feature.properties.Mire_eleva.toFixed(1)} m.a.s.l.<p/>`+
+        `<p class='popup_tag'>Distance to coast: ${(feature.properties.Distance_t / 1000).toFixed(1)} km<p/>`
+/*        `<p class='popup_tag'>Center: Long ${center_long.toFixed(2)}, Lat ${center_lat.toFixed(2)}<p/>`*/
 
-        var landscape_image = `<img class='photos' src = 'assets/images/${feature.properties.TARGET_FID}/landscape.JPG'/>`
+        var landscape_image = `<img class='photos' src = 'assets/images/Mires/${feature.properties.Split_ID}.JPG'/>`
 
-        var large_view = `<a  class='popup_tag' href= 'https://slughg.github.io/MiresChrono/assets/images/${feature.properties.TARGET_FID}/landscape.JPG' target='_blank'>Large view in a separate window</a>`
+        var large_view = `<a  class='popup_tag' href= 'https://slughg.github.io/MiresChrono/assets/images/Mires/${feature.properties.Split_ID}.JPG' target='_blank'>Large view in a separate window</a>`
 
         var date_text = `<p class='popup_tag'>Image taken on the ${feature.properties.Photo_date}<p/>`
 
@@ -69,6 +87,35 @@
         	{maxWidth: "auto"}
         	)
     }
+	}).addTo(map)
+
+
+	var miresP = L.geoJSON(miresP, {
+		pointToLayer: function(feature, latlng){
+			return L.shapeMarker(latlng, miresPStyle)
+		},
+		onEachFeature:function(feature, layer){
+
+        var label = `<p class='popup_tag'>Peat depth: ${feature.properties.Peat_depth} cm<p/>` + 
+        `<p class='popup_tag'>Conductivity: ${feature.properties.Conductivi} µS/cm<p/>`+
+        `<p class='popup_tag'>pH: ${feature.properties.pH}<p/>`+
+        `<p class='popup_tag'>LOI: ${feature.properties.LOI____.toFixed(0)} % <p/>`+
+        `<p class='popup_tag'>Elevation: ${feature.properties.Elevation.toFixed(1)} m.a.s.l.<p/>`
+/*        `<p class='popup_tag'>Center: Long ${center_long.toFixed(2)}, Lat ${center_lat.toFixed(2)}<p/>`*/
+
+        var point_image = `<img class='photos' src = 'assets/images/Mire_points/${feature.properties.Name}.JPG'/>`
+
+        var large_view = `<a  class='popup_tag' href= 'https://slughg.github.io/MiresChrono/assets/images/Mire_points/${feature.properties.Name}.JPG' target='_blank'>Large view in a separate window</a>`
+
+        var date_text = `<p class='popup_tag'>Image taken on the ${feature.properties.Date}<p/>`
+
+        //console.log(date_text)
+        /*layer.bindPopup(label+"<br/>"+landscape_image+"<br/>"+large_view+"<br/>"+date_text,*/
+        layer.bindPopup(label+point_image+"<br/>"+large_view+date_text,
+       //layer.bindPopup(label+"<br/>"+"<img class='photos' src = 'assets/images/115/Landscape.JPG'/>",
+        	{maxWidth: "auto"}
+        	)
+		}
 	}).addTo(map)
 
  	L.control.scale().addTo(map);
@@ -102,7 +149,7 @@ map.on('popupopen', function(e) {
 	var openTopoMapRadio = document.getElementById("openTopoMapRadio")
 	var googleTerrainRadio = document.getElementById("googleTerrainRadio")
 
-	var catchmentsCheck = document.getElementById("miresCheck")
+	var miresCheck = document.getElementById("miresCheck")
 
 
 	var baseLayers = {
@@ -128,8 +175,20 @@ map.on('popupopen', function(e) {
 
 
 	miresCheck.onclick = function(){
-		if($(this).is(':checked'))	mires.addTo(map)
-		else map.removeLayer(mires)
+		if($(this).is(':checked')){
+			miresW.addTo(map)
+			mires.addTo(map)
+		}
+		else{
+			map.removeLayer(mires)
+			map.removeLayer(miresW)
+		}
+	}
+
+
+	miresPCheck.onclick = function(){
+		if($(this).is(':checked')) miresP.addTo(map)
+		else map.removeLayer(miresP)
 	}
 
 
