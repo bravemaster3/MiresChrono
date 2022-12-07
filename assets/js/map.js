@@ -64,12 +64,22 @@
 
 
  	//Adding the layer of whole mires first, and then we can add on top the split ones with transparent style
-	var miresW = L.geoJSON(miresW, {style : miresWStyle}).addTo(map)
+	var miresW = L.geoJSON(miresW, {
+		style : miresWStyle, 
+		onEachFeature: function (feature, layer){
+		        layer.bindTooltip(feature.properties.Id_1.toString(), {
+			      permanent: true,
+			      opacity: 1
+			    });
+		 }
+		 }).addTo(map)
+
+
 
 	//Adding the geojson files
 	var mires = L.geoJSON(mires, {
 		style : miresStyle,
-		onEachFeature:function(feature, layer){
+		onEachFeature: function(feature, layer){
 
 /*        area = turf.area(feature)/10000
         center = turf.center(feature)
@@ -187,6 +197,7 @@ map.on('popupopen', function(e) {
 		if($(this).is(':checked')){
 			miresW.addTo(map)
 			mires.addTo(map)
+			miresP.bringToFront()
 		}
 		else{
 			map.removeLayer(mires)
@@ -207,6 +218,8 @@ L.control.browserPrint({position: 'topleft'}).addTo(map);*/
 
 	L.easyButton('<i class="fa fa-home fa-lg" title="Zoom to home"></i>',function(btn,map){
 	  	map.setView([home.lat, home.lng], home.zoom);
+	  	//Responsive map...
+		$(window).on("resize", function () { $("#map").height($(window).height()-50); map.invalidateSize(); }).trigger("resize");
 	},'Zoom To Home').addTo(map);
 
 //Mouse move coordinates
@@ -216,10 +229,10 @@ L.control.browserPrint({position: 'topleft'}).addTo(map);*/
 	    $("#coordinates").html(`Lat:${e.latlng.lat.toFixed(3)}, Long:${e.latlng.lng.toFixed(3)}`)
 	})
 
-	//bring points on top on overlay
+/*	//bring points on top on overlay
 	map.on("overlayadd", function () {
 	  miresP.bringToFront();
-	});
+	});*/
 
 	//adding a seach function
 
@@ -229,6 +242,7 @@ L.control.browserPrint({position: 'topleft'}).addTo(map);*/
 			position:'topleft',
 			autoCollapse: true,
 			textPlaceholder: 'Search Mire ID',
+			hideMarkerOnCollapse: true,
 
 			moveToLocation: function(latlng, catalogNumber, map) {map.setView(latlng, 14);console.log(latlng)}
 		});
@@ -239,3 +253,5 @@ L.control.browserPrint({position: 'topleft'}).addTo(map);*/
 	  });
 
 	map.addControl( controlSearch );
+
+

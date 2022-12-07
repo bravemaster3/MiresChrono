@@ -15,7 +15,7 @@ color: black !important;
 }*/
 
 #map {
-	display: absolute;
+/*	display: absolute;*/
 	height: calc(100vh - 50px);
 	background-color:#eeee;
 }
@@ -124,6 +124,14 @@ color: black !important;
  /*A style for the home button*/
  .leaflet-bar button { height: 30px !important; width: 30px !important; font-size: 1.3em; padding: 2.5px; }
 
+.leaflet-tooltip {
+  border-color: transparent;
+  border-width: 2px;
+  height: 20px;
+  padding:  0;
+  background-color:rgba(144, 238, 144, 0.5);
+  opacity: 0.2;
+}
 /*
 .switch {
 	position: relative;
