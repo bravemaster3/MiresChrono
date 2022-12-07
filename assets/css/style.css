@@ -110,6 +110,9 @@ color: black !important;
 
  }
 
+ /*A style for the home button*/
+ .leaflet-bar button { height: 30px !important; width: 30px !important; font-size: 1.3em; padding: 2.5px; }
+
 /*
 .switch {
 	position: relative;
