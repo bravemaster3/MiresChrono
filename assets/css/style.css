@@ -10,10 +10,20 @@
 color: black !important;
 }
 
-#map {
-	height: calc(100vh - 50px); 
+body {
+	max-height: calc(100vh - 50px);
+}
+
+html, #map {
+	height: calc(100vh - 50px);
 	background-color:#eeee;
 }
+
+
+header.navbar {
+    margin-bottom: 0; /* remove bottom margin */ 
+}
+
 
 .card {
 	border: 0px;
