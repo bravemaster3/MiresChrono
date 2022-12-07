@@ -39,7 +39,7 @@ color: black !important;
 	right: 10px;
 	top: 10px;
 	/*background: rgba(0,0,0,0);*/
-	z-index: 1000;
+	z-index: 10000;
 }
 
 /*#lyrCollapse:hover + .toolbox {
@@ -49,11 +49,12 @@ color: black !important;
 
 #lyrCollapse:hover + .toolbox{
 	display: block;
-	z-index: 1000;
+	z-index: 10000;
 }
 
 .toolbox:hover{
 	display: block;
+	z-index: 10000;
 }
 
 #coordinates {

@@ -1,11 +1,17 @@
 	// Initialize the map and assign it to a variable for later use
 	// there's a few ways to declare a VARIABLE in javascript.
 	// you might also see people declaring variables using `const` and `let`
+	var home = {
+	  lat: 63.924,
+	  lng: 20.63,
+	  zoom: 11
+	}; 
+
 	var map = L.map('map', {
 	    // Set latitude and longitude of the map center (required)
 	    center: [63.924, 20.63],
 	    // Set the initial zoom level, values 0-18, where 0 is most zoomed-out (required)
-	    zoom: 12
+	    zoom: 11
 	});
 	 
 
@@ -54,7 +60,10 @@
 		weight: 1
 	}
 
-	//Adding the layer of whole mires first, and then we can add on top the split ones with transparent style
+
+
+
+ 	//Adding the layer of whole mires first, and then we can add on top the split ones with transparent style
 	var miresW = L.geoJSON(miresW, {style : miresWStyle}).addTo(map)
 
 	//Adding the geojson files
@@ -192,13 +201,41 @@ map.on('popupopen', function(e) {
 	}
 
 
-//add print control to the map
-L.control.browserPrint({position: 'topleft'}).addTo(map);
+/*//add print control to the map
+L.control.browserPrint({position: 'topleft'}).addTo(map);*/
+	//adding a zoom to home button
+
+	L.easyButton('<i class="fa fa-home fa-lg" title="Zoom to home"></i>',function(btn,map){
+	  	map.setView([home.lat, home.lng], home.zoom);
+	},'Zoom To Home').addTo(map);
 
 //Mouse move coordinates
 
-map.on('mousemove', function(e){
-    //console.log(e)
-    $("#coordinates").html(`Lat:${e.latlng.lat.toFixed(3)}, Long:${e.latlng.lng.toFixed(3)}`)
-})
+	map.on('mousemove', function(e){
+	    //console.log(e)
+	    $("#coordinates").html(`Lat:${e.latlng.lat.toFixed(3)}, Long:${e.latlng.lng.toFixed(3)}`)
+	})
 
+	//bring points on top on overlay
+	map.on("overlayadd", function () {
+	  miresP.bringToFront();
+	});
+
+	//adding a seach function
+
+	var controlSearch = new L.Control.Search({
+			layer: miresW,
+			propertyName: 'Id_1',
+			position:'topleft',
+			autoCollapse: true,
+			textPlaceholder: 'Search Mire ID',
+
+			moveToLocation: function(latlng, catalogNumber, map) {map.setView(latlng, 14);console.log(latlng)}
+		});
+
+
+	 controlSearch.on("search:locationfound", function (e) {
+	    if (e.layer._popup) e.layer.openPopup();
+	  });
+
+	map.addControl( controlSearch );
