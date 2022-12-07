@@ -10,11 +10,12 @@
 color: black !important;
 }
 
-body {
+/*body {
 	max-height: calc(100vh - 50px);
-}
+}*/
 
-html, #map {
+#map {
+	display: flex;
 	height: calc(100vh - 50px);
 	background-color:#eeee;
 }
