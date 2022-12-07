@@ -15,15 +15,15 @@ color: black !important;
 }*/
 
 #map {
-	display: flex;
+	display: absolute;
 	height: calc(100vh - 50px);
 	background-color:#eeee;
 }
 
 
-header.navbar {
-    margin-bottom: 0; /* remove bottom margin */ 
-}
+/*header.navbar {
+    margin-bottom: 0; 
+}*/
 
 
 .card {
