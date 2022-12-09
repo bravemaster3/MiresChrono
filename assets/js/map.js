@@ -61,15 +61,39 @@
 	}
 
 
+	var miresP15Style = {		
+		shape: "diamond",
+		radius: 6,
+		fillColor: "brown",
+		fillOpacity: 0.8,
+		color: "white",
+		weight: 1
+	}
+
+
 
 
  	//Adding the layer of whole mires first, and then we can add on top the split ones with transparent style
+
+	var mires_15 = L.geoJSON(mires_15, {
+		style : miresWStyle, 
+		onEachFeature: function (feature, layer){
+		        layer.bindTooltip(feature.properties.Id_1, {
+			      permanent: true,
+			      opacity: 1,
+			      direction: "left"
+			    });
+		 }
+		 }).addTo(map)
+
+
 	var miresW = L.geoJSON(miresW, {
 		style : miresWStyle, 
 		onEachFeature: function (feature, layer){
 		        layer.bindTooltip(feature.properties.Id_1.toString(), {
 			      permanent: true,
-			      opacity: 1
+			      opacity: 1,
+			      direction: "right"
 			    });
 		 }
 		 }).addTo(map)
@@ -87,7 +111,7 @@
         center_long = center.geometry.coordinates[0]
         center_lat = center.geometry.coordinates[1]*/
 
-        var label = `<p class='popup_tag'>Mire ID: ${feature.properties.Id_1}<p/>` + 
+        var label = `<p class='popup_tag'>Mire ID: ${feature.properties.NEW_Id}<p/>` + 
         `<p class='popup_tag'>Mirea Area: ${(feature.properties.Mire_area / 10000).toFixed(2)} ha<p/>`+
         `<p class='popup_tag'>Mire Elevation: ${feature.properties.Mire_eleva.toFixed(1)} m.a.s.l.<p/>`+
         `<p class='popup_tag'>Distance to coast: ${(feature.properties.Distance_t / 1000).toFixed(1)} km<p/>`
@@ -136,6 +160,28 @@
         	)
 		}
 	}).addTo(map)
+
+
+	var mires_15_P = L.geoJSON(mires_15_P, {
+		pointToLayer: function(feature, latlng){
+			return L.shapeMarker(latlng, miresP15Style)
+		},
+
+		onEachFeature: function(feature, layer){
+			var label = `<p class='popup_tag'>Mire ID: ${feature.properties.IDs}</p>` +
+			`<p class='popup_tag'>Peat age: ${feature.properties.Age.toFixed(0)} years</p>` +
+			`<p class='popup_tag'>Peat depth: ${feature.properties.Depth.toFixed(0)} cm</p>` 
+
+			var point_image = `<img class='photos' src = 'assets/images/Mire_points/${feature.properties.IDs}.jpg'/>`
+			
+		        var large_view = `<a  class='popup_tag' href= 'https://slughg.github.io/MiresChrono/assets/images/Mire_points/${feature.properties.IDs}.jpg' target='_blank'>Large view in a separate window</a>`
+		        var date_text = `<p class='popup_tag'>Image taken on the ${feature.properties.Date}<p/>`
+
+		        layer.bindPopup(label+point_image+"<br/>"+large_view+date_text, {maxWidth: "auto"})
+
+		}
+	}).addTo(map)
+
 
  	L.control.scale().addTo(map);
 /*	var searchControl = new L.control.search({
@@ -196,19 +242,28 @@ map.on('popupopen', function(e) {
 	miresCheck.onclick = function(){
 		if($(this).is(':checked')){
 			miresW.addTo(map)
+			mires_15.addTo(map)
 			mires.addTo(map)
 			miresP.bringToFront()
+			mires_15_P.bringToFront()
 		}
 		else{
 			map.removeLayer(mires)
+			map.removeLayer(mires_15)
 			map.removeLayer(miresW)
 		}
 	}
 
 
 	miresPCheck.onclick = function(){
-		if($(this).is(':checked')) miresP.addTo(map)
-		else map.removeLayer(miresP)
+		if($(this).is(':checked')) {
+			miresP.addTo(map)
+			mires_15_P.addTo(map)
+		}
+		else {
+			map.removeLayer(miresP)
+			map.removeLayer(mires_15_P)
+		}
 	}
 
 
@@ -237,7 +292,7 @@ L.control.browserPrint({position: 'topleft'}).addTo(map);*/
 	//adding a seach function
 
 	var controlSearch = new L.Control.Search({
-			layer: miresW,
+			layer:  L.featureGroup([miresW, mires_15]),
 			propertyName: 'Id_1',
 			position:'topleft',
 			autoCollapse: true,
