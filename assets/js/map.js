@@ -52,9 +52,9 @@
 	}
 
 	var miresPStyle = {		
-		shape: "star-5",
-		radius: 10,
-		fillColor: "cyan",
+		shape: "circle",
+		radius: 6,
+		fillColor: "brown",
 		fillOpacity: 0.8,
 		color: "white",
 		weight: 1
@@ -62,9 +62,9 @@
 
 
 	var miresP15Style = {		
-		shape: "diamond",
+		shape: "triangle-down",
 		radius: 6,
-		fillColor: "brown",
+		fillColor: "black",
 		fillOpacity: 0.8,
 		color: "white",
 		weight: 1
@@ -119,13 +119,13 @@
 
         var landscape_image = `<img class='photos' src = 'assets/images/Mires/${feature.properties.Split_ID}.JPG'/>`
 
-        var large_view = `<a  class='popup_tag' href= 'https://slughg.github.io/MiresChrono/assets/images/Mires/${feature.properties.Split_ID}.JPG' target='_blank'>Large view in a separate window</a>`
+        var large_view = `<div class='popup_tag anch'><a href= 'https://slughg.github.io/MiresChrono/assets/images/Mires/${feature.properties.Split_ID}.JPG' target='_blank'>Large view in a separate window</a></div>`
 
         var date_text = `<p class='popup_tag'>Image taken on the ${feature.properties.Photo_date}<p/>`
 
         //console.log(date_text)
         /*layer.bindPopup(label+"<br/>"+landscape_image+"<br/>"+large_view+"<br/>"+date_text,*/
-        layer.bindPopup(label+landscape_image+"<br/>"+large_view+date_text,
+        layer.bindPopup(label+landscape_image+large_view+date_text,
        //layer.bindPopup(label+"<br/>"+"<img class='photos' src = 'assets/images/115/Landscape.JPG'/>",
         	{maxWidth: "auto"}
         	)
@@ -148,13 +148,13 @@
 
         var point_image = `<img class='photos' src = 'assets/images/Mire_points/${feature.properties.Name}.JPG'/>`
 
-        var large_view = `<a  class='popup_tag' href= 'https://slughg.github.io/MiresChrono/assets/images/Mire_points/${feature.properties.Name}.JPG' target='_blank'>Large view in a separate window</a>`
+        var large_view = `<div class='popup_tag anch'><a href= 'https://slughg.github.io/MiresChrono/assets/images/Mire_points/${feature.properties.Name}.JPG' target='_blank'>Large view in a separate window</a></div>`
 
         var date_text = `<p class='popup_tag'>Image taken on the ${feature.properties.Date}<p/>`
 
         //console.log(date_text)
         /*layer.bindPopup(label+"<br/>"+landscape_image+"<br/>"+large_view+"<br/>"+date_text,*/
-        layer.bindPopup(label+point_image+"<br/>"+large_view+date_text,
+        layer.bindPopup(label+point_image+large_view+date_text,
        //layer.bindPopup(label+"<br/>"+"<img class='photos' src = 'assets/images/115/Landscape.JPG'/>",
         	{maxWidth: "auto"}
         	)
@@ -174,10 +174,10 @@
 
 			var point_image = `<img class='photos' src = 'assets/images/Mire_points/${feature.properties.IDs}.jpg'/>`
 			
-		        var large_view = `<a  class='popup_tag' href= 'https://slughg.github.io/MiresChrono/assets/images/Mire_points/${feature.properties.IDs}.jpg' target='_blank'>Large view in a separate window</a>`
+		        var large_view = `<div class='popup_tag anch'><a href= 'https://slughg.github.io/MiresChrono/assets/images/Mire_points/${feature.properties.IDs}.jpg' target='_blank'>Large view in a separate window</a></div>`
 		        var date_text = `<p class='popup_tag'>Image taken on the ${feature.properties.Date}<p/>`
 
-		        layer.bindPopup(label+point_image+"<br/>"+large_view+date_text, {maxWidth: "auto"})
+		        layer.bindPopup(label+point_image+"<br/>"+"<br/>"+large_view+date_text, {maxWidth: "auto"})
 
 		}
 	}).addTo(map)

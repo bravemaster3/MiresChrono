@@ -118,7 +118,10 @@ color: black !important;
  	font-family: Arial, Helvetica, sans-serif;
  	text-align: center;
  	align-self: center;
+ }
 
+ .anch {
+ 	font-size: 16px;
  }
 
  /*A style for the home button*/
