@@ -40,8 +40,8 @@
 
 	var miresWStyle = {
 	    weight:2,
-	    fillColor:"blue",
-	    color: "blue",
+	    fillColor: "brown", //"#CCAA66",
+	    color: "black", //"#CCAA66",
 	    fillOpacity:0.05
 	}
 
