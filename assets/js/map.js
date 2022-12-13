@@ -37,7 +37,7 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
 //Creating styles for the geojson files
 
 var miresWStyle = {
-	weight:2,
+	weight:1,
     fillColor: "brown", //"#CCAA66",
     color: "black", //"#CCAA66",
     fillOpacity:0.05
@@ -62,7 +62,7 @@ var miresPStyle = {
 var miresP15Style = {		
 	shape: "triangle-down",
 	radius: 6,
-	fillColor: "black",
+	fillColor: "blue",
 	fillOpacity: 0.8,
 	color: "white",
 	weight: 1
