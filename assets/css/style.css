@@ -2,6 +2,9 @@
 		Map CSS	 
 	#___________________*/
 
+	:root {
+		--padCard:  15px;
+	}
 	.navbar-light {
 	    background-color: #CCAA66;/*#9dc1ef!important;*/
 	}
@@ -9,12 +12,19 @@
 	 .navbar-brand, .nav-link{
 	color: black !important;
 	}
+	.navbar .navbar-collapse {
+	  text-align: center;
+	}
 
 	#map {
 		height: calc(100vh - 50px);
 		background-color:#eeee;
 	}
 
+	#aboutBody {
+		height: calc(100vh - 50px);
+		overflow-y: scroll;
+	}
 
 	.card {
 		border: 0px;
@@ -124,4 +134,87 @@
 	  padding:  0;
 	  background-color:rgba(144, 238, 144, 0.5);
 	  opacity: 0.2;
+	}
+
+	#more {
+		display: none;
+	}
+
+	.textbox-parentDiv{
+		padding-right: var(--padCard);
+		padding-top: var(--padCard);
+		position: relative;
+	}
+
+	.textbox{
+		height: 415px;
+		overflow-y: auto;
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+		border-radius: 25px;
+  		-ms-overflow-style: none;   /*IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+  		background-color: rgba(44, 62, 80,0.1);
+	}
+	.imageDiv{
+		padding: 25px;
+	}
+
+	.textbox::-webkit-scrollbar {
+		display: none;  Hide scrollbar for Chrome, Safari and Opera 
+	}
+
+	.fixedHeader{
+		position: absolute; 
+		text-align: center; 
+		color: white;
+		background-color: rgba(44, 62, 80); 
+		width: calc(100% - 2*var(--padCard) + 3px); 
+		border-radius: 22px 22px 0 0; 
+		margin-left: -2px; 
+		padding-top: 10px;
+		opacity: 1 !important;
+		z-index: 1;
+	}
+
+	/*Readmore button style*/
+
+	.buttonDiv {
+	  width: 100%;
+	  margin-top:  -10px;
+	}
+
+	.button-81 {
+	  margin: 0 auto;
+	  display: block;
+	  background-color: #fff;
+	  border: 0 solid #e2e8f0;
+	  border-radius: 1.5rem;
+	  box-sizing: border-box;
+	  color: #0d172a;
+	  cursor: pointer;
+	  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	  font-size: 1rem;
+	  font-weight: 600;
+	  line-height: 0.3;
+	  padding: 0.8rem 1rem;
+	  text-align: center;
+	  text-decoration: none #0d172a solid;
+	  text-decoration-thickness: auto;
+	  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+	  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+	  user-select: none;
+	  -webkit-user-select: none;
+	  touch-action: manipulation;
+	}
+
+	.button-81:hover {
+	  background-color: rgba(44, 62, 80);
+	  color: #fff;
+	}
+
+	@media (min-width: 768px) {
+	  .button-81 {
+	    font-size: 1rem;
+	    padding: 0.8rem 1rem;
+	  }
 	}

@@ -10,23 +10,19 @@
 	   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
 	   crossorigin=""/>
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-	<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-		-->
+	<link rel="stylesheet" type="text/css" href="assets/css/leaflet-search.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/easy-button.css">
+	<link 
+	  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+	  rel="stylesheet"  type='text/css'>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-<!-- Order: bootstrap link, own css link, finally embedded style can be added as follows -->
-
-	<style type="text/css">
-		
-	</style>
-</head>
-<body>
 	<div class="container-fluid" style="padding: 0px;">
 		<nav class="navbar navbar-expand-lg navbar-light" style="padding: 0px;">
 			<a class="navbar-brand" href="#">
 				<img src="assets/images/SLU_logo.png" style="height: 40px;"}>
 			</a>
-		  <a class="navbar-brand" href="index.html">Mires Chronosequence</a>
+		  <a class="navbar-brand" href="#">SMC</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
@@ -34,45 +30,94 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item">
+		      	<a class="nav-link" href="index.html">Map</a>
+		      </li>
+		      <li class="nav-item">
 		        <a class="nav-link" href="about.html">About</a>
 		      </li>
 		    </ul>
-<!-- 		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		    </form> -->
+		    
 		  </div>
 		</nav>
 	</div>
-	<div style="margin-left: 5%; margin-right: 5%; text-align: justify; text-justify: inter-word;">
-		<h1>The Mires ChronoSequence project</h1>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis lorem quis enim accumsan iaculis. Donec vitae velit elementum, aliquam nunc eu, placerat neque. Nulla tristique accumsan aliquet. Vivamus finibus eget ante vitae tincidunt. Etiam commodo tellus nec nulla luctus bibendum. Mauris vel accumsan sem, eget suscipit velit. Suspendisse tempus libero urna, eget pretium magna tristique quis. Morbi commodo imperdiet sagittis. Etiam auctor vitae sem tincidunt sollicitudin. Vivamus scelerisque pellentesque metus, tempor aliquam ligula bibendum a. Donec a mi elit. Donec fermentum erat dui, nec sodales sapien feugiat vel. Aliquam blandit, purus a tempor accumsan, leo mi accumsan nunc, non pretium felis felis ac erat. Integer vel accumsan nisi.</p>
+</head>
+<body>
 
-		<div class="row">
-		    <div class="col"><hr></div>
-		    <div class="col-auto"><h4>Lorem ipsum 1</h4></div>
-		    <div class="col"><hr></div>
+	<div class="col-md-12" id="aboutBody" style="padding: 0px;">
+		<div class="container" style="text-align: justify; text-justify: inter-word; display: fluid;">
+			<div class = "row justify-content-center">
+				<h2 style = "text-align: center; padding-top: 15px; padding-bottom: 5px;">Sävar Rising Coastline Mire Chronosequence</h2>
+
+				<div class="col-lg-6 textbox-parentDiv">
+					<div class="col-lg-12 fixedHeader"><h3>Background</h3></div>
+					<div class ="textbox" style="padding: 25px 15px 15px 15px;;">
+						<p style="margin-top:  40px;">The Sävar Rising Coastline Mire Chronosequence (SMC) is a study area in the Swedish province of Västerbotten in the Bothnian Bay Lowlands (BBL), located ~ 20 km northeast of the town Umeå. The young boreal landscape is characterized by post-glacial isostatic rebound, today at a rate of ~ 9 mm per year. Since the onset of the last deglaciation, new land areas have continuously been exposed from the sea, constantly offering new locales suitable for primary mire formation. As a result, a natural mire chronosequence has formed between the present coastline (0 years BP) and the highest coastline (~ 10 000 years BP), with increasing mire ages the further inland from the present coast the mire is found. The strong age gradient implies similar present climatic conditions across the area and provides a unique opportunity to study mire succession at the landscape level.
+						</p>
+					</div>
+				</div>
+
+				<div class="col-lg-6 textbox-parentDiv">
+					<!-- <div style = "position: fixed; text-align: center; background-color: white; width: 50%;"><h3>Interactive map</h3></div> -->
+					<div class="col-lg-12 fixedHeader"><h3>Interactive map</h3></div>
+					<div class ="textbox" style="padding: 25px 15px 15px 15px;">
+						<p style="margin-top: 40px;">In the interactive map, field photos from two separate transects in the Sävar Rising Coastline Mire Chronosequence (SMC) are included. The mires are searchable using their unique IDs. From the legend box, the background map can be set to street, topographic, terrain or satellite view. When you click on a mire shape, a landscape photo along with mire geographical properties are displayed and when you click on a point a vegetation photo is displayed along with sampling point data. In 57 chronosequence mires, edge-to-edge sampling transects have been applied (red points in the map). Between one and four sampling transects, with five sampling points each, are used to cover within-mire variation in peat properties. In total 400 sampling points were distributed across the 57 mires, and visited during July and August 2018. <span id="dots">...</span><span id="more">In the vegetation photos, a 50 x 50 cm frame is used. In 15 chronosequence mires, relative and absolute groundwater levels have been continuously monitored for two years (2021-2023). The groundwater monitored mires have been used in several studies describing among others mercury dynamics (Hu et al., 2020; Wang et al., 2023, 2021, 2020) and plant succession (Laine et al., 2021).
+						<br>
+						<br>
+						Links to studies from the chronosequence:
+						<br>
+						<br>
+						Ehnvall, B., Ratcliffe, J.L., Bohlin, E., Nilsson, M.B., Öquist, M.G., Sponseller, R.A., Grabs, T., 2023. Landscape constraints on mire lateral expansion. Quat. Sci. Rev. 302, 107961. https://doi.org/10.1016/j.quascirev.2023.107961
+						<br>
+						<br>
+						Hu, H., Wang, B., Bravo, A.G., Björn, E., Skyllberg, U., Amouroux, D., Tessier, E., Zopfi, J., Feng, X., Bishop, K., Nilsson, M.B., Bertilsson, S., 2020. Shifts in mercury methylation across a peatland chronosequence: From sulfate reduction to methanogenesis and syntrophy. J. Hazard. Mater. 387, 121967
+						<br>
+						<br>
+						Laine, A.M., Lindholm, T., Nilsson, M., Kutznetsov, O., Jassey, V.E.J., Tuittila, E., 2021. Functional diversity and trait composition of vascular plant and Sphagnum moss communities during peatland succession across land uplift regions. J. Ecol. 109, 1774–1789. https://doi.org/10.1111/1365-2745.13601
+						<br>
+						<br>
+						Wang, B., Hu, H., Bishop, K., Buck, M., Björn, E., Skyllberg, U., Nilsson, M.B., Bertilsson, S., Bravo, A.G., 2023. Microbial communities mediating net methylmercury formation along a trophic gradient in a peatland chronosequence. J. Hazard. Mater. 442, 130057. https://doi.org/10.1016/j.jhazmat.2022.130057
+						<br>
+						<br>
+						Wang, B., Nilsson, M.B., Eklöf, K., Hu, H., Ehnvall, B., Bravo, A.G., Zhong, S., Åkeblom, S., Björn, E., Bertilsson, S., Skyllberg, U., Bishop, K., 2020. Opposing spatial trends in methylmercury and total mercury along a peatland chronosequence trophic gradient. Sci. Total Environ. 718, 137306. https://doi.org/10.1016/j.scitotenv.2020.137306
+						<br>
+						<br>
+						Wang, B., Zhong, S., Bishop, K., Nilsson, M.B., Hu, H., Eklöf, K., Bravo, A.G., Åkerblom, S., Bertilsson, S., Björn, E., Skyllberg, U., 2021. Biogeochemical influences on net methylmercury formation proxies along a peatland chronosequence. Geochim. Cosmochim. Acta 308, 188–203. https://doi.org/10.1016/j.gca.2021.06.010
+						<br>
+						</span></p>
+
+						
+						<div class="buttonDiv">
+							<button onclick="myFunction()" id="myBtn" class="button-81">Read more</button>
+						</div>
+					</div>
+				</div>
+				<div class = "row justify-content-center imageDiv">
+					<img src="assets/images/about_image.jpg" style="max-width: 100%; max-height: 450 px;">
+				</div>
+			</div>
 		</div>
-
-		<p>Cras viverra, elit nec porta molestie, diam tellus ultricies augue, non dictum elit erat sit amet enim. Fusce id sapien sem. Cras eros nulla, rhoncus eu arcu vitae, lacinia mollis velit. Aliquam cursus odio et ex molestie finibus. Phasellus mattis nisi congue ante facilisis mattis. Maecenas vel eros ex. Sed vulputate vulputate dui hendrerit rutrum. Fusce rhoncus non ante et scelerisque. Curabitur sodales consequat augue quis efficitur. Etiam malesuada pretium lacus, ac auctor nisl vehicula sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce diam lectus, facilisis ut quam quis, porttitor lacinia ipsum. Maecenas leo dolor, venenatis in diam quis, posuere feugiat ante. Nulla congue, enim non dignissim sollicitudin, dolor ante pretium augue, vitae dignissim dui dolor non turpis. Proin erat neque, hendrerit a volutpat nec, lobortis eu justo.</p>
-
-		<div class="row">
-		    <div class="col"><hr></div>
-		    <div class="col-auto"><h4>Lorem ipsum 2</h4></div>
-		    <div class="col"><hr></div>
+		<div style="text-align: center; padding-bottom: 10px;">
+			<h6>For more information, please contact Betty Ehnvall (betty.ehnvall@slu.se) </h6>
 		</div>
-
-		<p>Quisque lacinia sollicitudin quam et condimentum. Proin et urna a est porta accumsan. Praesent urna metus, ultricies eu aliquam vitae, semper at metus. Quisque posuere est ut nunc lobortis, quis molestie nunc porttitor. In accumsan metus dictum, aliquam purus sit amet, luctus elit. Proin vel molestie erat, vel gravida nibh. Phasellus in lorem fringilla, consequat dolor nec, ultrices nulla. Phasellus cursus urna non mollis dignissim. Ut aliquet sapien ut est finibus, eget feugiat magna fringilla.</p>
-		<div class="text-center">
-			<img src="assets/images/instrumentation_map.png" style="text-align: center; position: relative; max-width: 100%;">
-		</div>
-
-		<p>You can read more about it <a href="https://www.slu.se/en/departments/field-based-forest-research/experimental-forests/vindeln-experimental-forests/the-kulbacksliden-research-infrastructure/" target="_blank">here</a></p>
-
-
 	</div>
-	
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script>
+		function myFunction() {;
+		  var dots = document.getElementById("dots");
+		  var moreText = document.getElementById("more");
+		  var btnText = document.getElementById("myBtn");
+		  if (dots.style.display === "none") {
+		    dots.style.display = "inline";
+		    btnText.innerHTML = "Read more"; 
+		    moreText.style.display = "none";
+		  } else {
+		    dots.style.display = "none";
+		    btnText.innerHTML = "Read less"; 
+		    moreText.style.display = "inline";
+		  }
+		}
+	</script>
 </body>
 </html>
