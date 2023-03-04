@@ -9,9 +9,14 @@
 	    background-color: #CCAA66;/*#9dc1ef!important;*/
 	}
 
-	 .navbar-brand, .nav-link{
-	color: black !important;
+	.navbar-brand, .nav-link{
+		color: black !important;
+		}
+
+	.nav-link:hover {
+		color: white !important;
 	}
+
 	.navbar .navbar-collapse {
 	  text-align: center;
 	}
@@ -180,7 +185,7 @@
 
 	.buttonDiv {
 	  width: 100%;
-	  margin-top:  -10px;
+	  margin-top:  -15px;
 	}
 
 	.button-81 {

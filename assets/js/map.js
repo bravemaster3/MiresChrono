@@ -255,7 +255,7 @@ var controlSearch = new L.Control.Search({
 	propertyName: 'Id_1',
 	position:'topleft',
 	autoCollapse: true,
-	textPlaceholder: 'Search Mire ID',
+	textPlaceholder: "Search Mire ('S...' or Numbers)",
 	hideMarkerOnCollapse: true,
 
 	moveToLocation: function(latlng, catalogNumber, map) {map.setView(latlng, 14);console.log(latlng)}
